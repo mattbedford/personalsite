@@ -3,7 +3,15 @@ import SocialsVue from './components/socials-vue.vue';
 import jumpLink from './components/jump-link.vue';
 import myAbout from './components/my-about.vue';
 import myProjects from './components/my-projects.vue';
+import { ref } from 'vue'
 
+let showing = ref(false)
+
+
+function doMe(id) {
+  showing.value = !showing.value;
+  console.log(showing)
+}
 </script>
 
 <template>
@@ -24,12 +32,17 @@ import myProjects from './components/my-projects.vue';
   </header>
 
   <main>
-    <myProjects />
+    <div v-if="showing" class="red">xxxxxxxxxxxxxxxxxxxx</div>
+    <myProjects @show-proj="doMe"/>
     <myAbout />
     
   </main>
 </template>
 
 <style scoped>
-
+.red {
+  width:100%;
+  height:200px;
+  background:red;
+}
 </style>

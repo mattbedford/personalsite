@@ -1,5 +1,5 @@
 <template>
-    <div class="about" id="about">
+    <div class="about page-section" id="about">
         <div class="photo">
             <img class="matt-picture" src="@/assets/matt-picture.webp" />
         </div>
