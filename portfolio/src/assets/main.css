@@ -12,7 +12,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#app {
+.page {
   display:flex;
   max-width: 1400px;
   width:100%;
@@ -120,4 +120,8 @@ nav * {
 .page-section {
   max-width: 65vw;
   padding: 100px 0 0 0;
+}
+
+.about.page-section {
+  padding-left:40px;
 }
