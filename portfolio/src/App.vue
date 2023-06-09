@@ -40,7 +40,7 @@ function doMe(id, projObj) {
 
     <main>
         <theShelf v-if="showing" :project="dataProj" @goBack="doMe"/>
-        <myProjects v-show="!showing" @show-proj="doMe"/>
+        <myProjects v-show="!showing" @show-proj="doMe" />
         <myAbout v-show="!showing" />
         <mySkills v-show="!showing" />
     </main>
