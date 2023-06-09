@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/vue-splide": "^0.6.12",
+    "devicon": "^2.15.1",
     "vue": "^3.3.2"
   },
   "devDependencies": {

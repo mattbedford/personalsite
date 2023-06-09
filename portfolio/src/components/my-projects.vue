@@ -1,6 +1,6 @@
 <template>
     <div id="projects" class="page-section">
-        <div v-for="(item, index) in projects" :key="index" class="project-card project" @click="$emit('showProj', item.id)">
+        <div v-for="(item, index) in projects" :key="index" class="project-card project" @click="$emit('showProj', item.id, item)">
             <div class="feat-image" :style="{ backgroundImage: 'url(' + item.main_pic.guid + ')' }" />
             <div class="texts">
                 <h3>
@@ -17,6 +17,7 @@
   <script>
   export default {
       props: ['single'],
+      emits: ['show-proj', 'showProj'],
       data() {
         return {
             name: 'myProjects',
