@@ -18,6 +18,11 @@ function doMe(id, projObj) {
   showing.value = id
   dataProj = projObj
 }
+
+function visibilityChanged (isVisible, entry, el) {
+  console.log("isVis: " + el)
+}
+
 </script>
 
 <template>
@@ -40,9 +45,9 @@ function doMe(id, projObj) {
 
     <main>
         <theShelf v-if="showing" :project="dataProj" @goBack="doMe"/>
-        <myProjects v-show="!showing" @show-proj="doMe" />
-        <myAbout v-show="!showing" />
-        <mySkills v-show="!showing" />
+        <myProjects v-show="!showing" @show-proj="doMe" v-observe-visibility="(isVisible, entry) => visibilityChanged(isVisible, entry, 'projects')" />
+        <myAbout v-show="!showing" v-observe-visibility="(isVisible, entry) => visibilityChanged(isVisible, entry, 'about')" />
+        <mySkills v-show="!showing" v-observe-visibility="(isVisible, entry) => visibilityChanged(isVisible, entry, 'skills')" />
     </main>
   </div>
 </template>
