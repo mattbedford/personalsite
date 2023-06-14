@@ -228,5 +228,16 @@ nav * {
     left:-10px !important;
   }
   
+.feat-image.fake {
+  background-color:rgba(0,0,0,0) !important;
+}
+.feat-image.fake .placeholder {
+ width:100%;
+  height:auto;
+  filter:hue-rotate(275deg) brightness(1.5);
+  position:relative;
+  bottom:-20px;
+}
+
 }
 
