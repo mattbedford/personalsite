@@ -57,7 +57,7 @@
       },
       methods: {
         fetchProjects: async function (num) {
-        fetch(`https://matt-backend.sh1.hidora.net/wp-json/wp/v2/projects/?per_page=${num}&order=asc`)
+        fetch(`https://matt-backend.sh1.hidora.net/wp-json/wp/v2/projects/?per_page=${num}&order=desc`)
             .then(response => response.json())
             .then((data) => {
                 this.projects = data
@@ -67,7 +67,7 @@
       grabMoreProjects: async function (num) {
         this.projectsReady = false;
         let offset = this.projects.length
-        fetch(`https://matt-backend.sh1.hidora.net/wp-json/wp/v2/projects/?per_page=${num}&order=asc&offset=${offset}`)
+        fetch(`https://matt-backend.sh1.hidora.net/wp-json/wp/v2/projects/?per_page=${num}&order=desc&offset=${offset}`)
             .then(response => response.json())
             .then((data) => {
                 if (data.length < 4) {

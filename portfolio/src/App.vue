@@ -5,10 +5,14 @@ import myAbout from './components/my-about.vue';
 import myProjects from './components/my-projects.vue';
 import theShelf from './components/the-shelf.vue';
 import mySkills from './components/my-skills.vue';
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 let showing = ref(false)
 let dataProj = ref([])
+
+onMounted(() => {
+  projectsLink('projects', "")
+})
 
 function noShow() {
   showing.value = false
@@ -71,10 +75,25 @@ function skillsLink(a, b) {
     </header>
 
     <main>
-        <theShelf v-if="showing" :project="dataProj" @goBack="doMe" v-observe-visibility="projectsLink"/>
-        <myProjects v-show="!showing" @show-proj="doMe" v-observe-visibility="projectsLink" />
+        <theShelf v-if="showing" :project="dataProj" @goBack="doMe" v-observe-visibility="{
+            callback: projectsLink,
+            intersection: {
+              threshold: 0.0,
+            },
+          }" />
+        <myProjects v-show="!showing" @show-proj="doMe" v-observe-visibility="{
+            callback: projectsLink,
+            intersection: {
+              threshold: 0.3,
+            },
+          }" />
         <myAbout v-show="!showing" v-observe-visibility="aboutLink" />
-        <mySkills v-show="!showing" v-observe-visibility="skillsLink" />
+        <mySkills v-show="!showing" v-observe-visibility="{
+            callback: skillsLink,
+            intersection: {
+              threshold: 0.3,
+            },
+          }" />
     </main>
   </div>
 </template>

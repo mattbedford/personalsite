@@ -1,5 +1,5 @@
 <template>
-    <div class="page-section">
+    <div class="page-section active-shelf">
         <span @click="$emit('goBack', null)" class="back-out">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400 100 256l144-144M120 256h292"/></svg>
             <span>Return to all projects</span>
