@@ -19,9 +19,36 @@ function doMe(id, projObj) {
   dataProj = projObj
 }
 
-function visibilityChanged (isVisible, entry, el) {
-  console.log("isVis: " + el)
+function projectsLink(a, b) {
+  if(a) {
+    document.querySelector('.about-link').classList.remove("activated")
+    document.querySelector('.skills-link').classList.remove("activated")
+    document.querySelector('.projects-link').classList.add("activated")
+  } else {
+    document.querySelector('.projects-link').classList.remove("activated")
+  }
 }
+
+function aboutLink(a, b) {
+  if(a) {
+    document.querySelector('.skills-link').classList.remove("activated")
+    document.querySelector('.projects-link').classList.remove("activated")
+    document.querySelector('.about-link').classList.add("activated")
+  } else {
+    document.querySelector('.about-link').classList.remove("activated")
+  }
+}
+
+function skillsLink(a, b) {
+  if(a) {
+    document.querySelector('.projects-link').classList.remove("activated")
+    document.querySelector('.about-link').classList.remove("activated")
+    document.querySelector('.skills-link').classList.add("activated")
+  } else {
+    document.querySelector('.skills-link').classList.remove("activated")
+  }
+}
+
 
 </script>
 
@@ -33,9 +60,9 @@ function visibilityChanged (isVisible, entry, el) {
           <img alt="Vue logo" class="logo" src="@/assets/matt-logo-personal-alpha.webp" width="367" height="138" />
           <p>Full-stack developer with JavaScript/Vue and PHP. I freelance for companies who want to make the world a better place.</p>
           <nav>
-            <jump-link link="projects" text="Projects" />
-            <jump-link link="about" text="About" />
-            <jump-link link="skills" text="Skills" />
+            <jump-link ref="projects" link="projects" text="Projects" class="lz projects-link" />
+            <jump-link ref="about" link="about" text="About" class="lz about-link" />
+            <jump-link ref="skills" link="skills" text="Skills" class="lz skills-link" />
           </nav>
         </div>
 
@@ -44,10 +71,10 @@ function visibilityChanged (isVisible, entry, el) {
     </header>
 
     <main>
-        <theShelf v-if="showing" :project="dataProj" @goBack="doMe"/>
-        <myProjects v-show="!showing" @show-proj="doMe" v-observe-visibility="(isVisible, entry) => visibilityChanged(isVisible, entry, 'projects')" />
-        <myAbout v-show="!showing" v-observe-visibility="(isVisible, entry) => visibilityChanged(isVisible, entry, 'about')" />
-        <mySkills v-show="!showing" v-observe-visibility="(isVisible, entry) => visibilityChanged(isVisible, entry, 'skills')" />
+        <theShelf v-if="showing" :project="dataProj" @goBack="doMe" v-observe-visibility="projectsLink"/>
+        <myProjects v-show="!showing" @show-proj="doMe" v-observe-visibility="projectsLink" />
+        <myAbout v-show="!showing" v-observe-visibility="aboutLink" />
+        <mySkills v-show="!showing" v-observe-visibility="skillsLink" />
     </main>
   </div>
 </template>

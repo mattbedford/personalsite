@@ -1,12 +1,14 @@
 <template>
-  <a :href="`/#${link}`"><span class="text">{{ text }}</span>
+  <a :href="`/#${link}`" :class="isActive">
+    <span class="text">{{ text }}</span>
       <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m268 112 144 144-144 144m124-144H100"/></svg>
   </a>
 </template>
 
 <script>
 export default {
-props: ['link', 'text']    
+props: ['link', 'text'],
+
 }
 </script>
 
