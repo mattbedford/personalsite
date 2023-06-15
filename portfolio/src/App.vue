@@ -61,7 +61,7 @@ function skillsLink(a, b) {
     <header @click="noShow()">
       <div class="wrapper">
         <div class="wrapper-inner">
-          <img alt="Vue logo" class="logo" src="@/assets/matt-logo-personal-alpha.webp" width="367" height="138" />
+          <img alt="Matt Bedford - Full Stack Developer" class="logo" src="@/assets/matt-logo-personal-alpha.webp" width="367" height="138" />
           <p>Full-stack developer with JavaScript/Vue and PHP. I freelance for companies who want to make the world a better place.</p>
           <nav>
             <jump-link ref="projects" link="projects" text="Projects" class="lz projects-link" />
